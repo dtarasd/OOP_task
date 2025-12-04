@@ -14,8 +14,7 @@ public:
 typedef Train Ttrain;
 
 int main() {
-    // Вмикаємо старе добре кодування Windows-1251
-    // Воно дозволяє і писати, і читати українською без помилок
+
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
@@ -23,10 +22,10 @@ int main() {
     Ttrain mas[SIZE];
     Ttrain temp;
 
-    cout << "Введіть данні для " << SIZE << " поїздів." << endl; // Тимчасово латиницею, якщо кодування злетить
+    cout << "Введіть данні для " << SIZE << " поїздів." << endl;
     cout << "УВАГА: Вводьте назви міст без пробілів!" << endl;
 
-    // --- ВВЕДЕННЯ ---
+    // ВВЕДЕННЯ
     for (int i = 0; i < SIZE; i++) {
         cout << "\nПоїзд номер " << (i + 1) << endl;
 
@@ -44,7 +43,7 @@ int main() {
         cin >> mas[i].time;
     }
 
-    // --- СОРТУВАННЯ ЗА НОМЕРАМИ ---
+    // СОРТУВАННЯ ЗА НОМЕРАМИ
     for (int i = 0; i < SIZE - 1; i++) {
         for (int j = 0; j < SIZE - i - 1; j++) {
             if (mas[j].number > mas[j + 1].number) {
@@ -60,7 +59,7 @@ int main() {
         cout << "№" << mas[i].number << "\t -> " << mas[i].destination << "\t (" << mas[i].time << ")" << endl;
     }
 
-    // --- ПОШУК ---
+    // ПОШУК
     int searchNum;
     cout << "\nВведіть номер для пошуку: ";
     cin >> searchNum;
@@ -75,7 +74,7 @@ int main() {
     }
     if (!found) cout << "Не знайдено." << endl;
 
-    // --- СОРТУВАННЯ ЗА МІСТАМИ ---
+    // СОРТУВАННЯ ЗА МІСТАМИ
     for (int i = 0; i < SIZE - 1; i++) {
         for (int j = 0; j < SIZE - i - 1; j++) {
             bool swap = false;
