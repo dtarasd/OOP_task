@@ -14,8 +14,7 @@ public:
 typedef Train Ttrain;
 
 int main() {
-    // Вмикаємо старе добре кодування Windows-1251
-    // Воно дозволяє і писати, і читати українською без помилок
+ 
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
@@ -23,28 +22,28 @@ int main() {
     Ttrain mas[SIZE];
     Ttrain temp;
 
-    cout << "Введіть данні для " << SIZE << " поїздів." << endl; // Тимчасово латиницею, якщо кодування злетить
-    cout << "УВАГА: Вводьте назви міст без пробілів!" << endl;
+    cout << "Р’РІРµРґС–С‚СЊ РґР°РЅРЅС– РґР»СЏ " << SIZE << " РїРѕС—Р·РґС–РІ." << endl; 
+    cout << "РЈР’РђР“Рђ: Р’РІРѕРґСЊС‚Рµ РЅР°Р·РІРё РјС–СЃС‚ Р±РµР· РїСЂРѕР±С–Р»С–РІ!" << endl;
 
-    // --- ВВЕДЕННЯ ---
+    // Р’Р’Р•Р”Р•РќРќРЇ 
     for (int i = 0; i < SIZE; i++) {
-        cout << "\nПоїзд номер " << (i + 1) << endl;
+        cout << "\nРџРѕС—Р·Рґ РЅРѕРјРµСЂ " << (i + 1) << endl;
 
-        cout << "  Пункт призначення: ";
+        cout << "  РџСѓРЅРєС‚ РїСЂРёР·РЅР°С‡РµРЅРЅСЏ: ";
         cin >> mas[i].destination;
 
-        cout << "  Номер поїзда: ";
+        cout << "  РќРѕРјРµСЂ РїРѕС—Р·РґР°: ";
         while (!(cin >> mas[i].number)) {
-            cout << "  Помилка! Введіть число: ";
+            cout << "  РџРѕРјРёР»РєР°! Р’РІРµРґС–С‚СЊ С‡РёСЃР»Рѕ: ";
             cin.clear();
             cin.ignore(10000, '\n');
         }
 
-        cout << "  Час (ГГ:ХХ): ";
+        cout << "  Р§Р°СЃ (Р“Р“:РҐРҐ): ";
         cin >> mas[i].time;
     }
 
-    // --- СОРТУВАННЯ ЗА НОМЕРАМИ ---
+    // РЎРћР РўРЈР’РђРќРќРЇ Р—Рђ РќРћРњР•Р РђРњР
     for (int i = 0; i < SIZE - 1; i++) {
         for (int j = 0; j < SIZE - i - 1; j++) {
             if (mas[j].number > mas[j + 1].number) {
@@ -55,27 +54,27 @@ int main() {
         }
     }
 
-    cout << "\n=== Список за номерами ===" << endl;
+    cout << "\n=== РЎРїРёСЃРѕРє Р·Р° РЅРѕРјРµСЂР°РјРё ===" << endl;
     for (int i = 0; i < SIZE; i++) {
-        cout << "№" << mas[i].number << "\t -> " << mas[i].destination << "\t (" << mas[i].time << ")" << endl;
+        cout << "в„–" << mas[i].number << "\t -> " << mas[i].destination << "\t (" << mas[i].time << ")" << endl;
     }
 
-    // --- ПОШУК ---
+    // РџРћРЁРЈРљ
     int searchNum;
-    cout << "\nВведіть номер для пошуку: ";
+    cout << "\nР’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ РґР»СЏ РїРѕС€СѓРєСѓ: ";
     cin >> searchNum;
 
     bool found = false;
     for (int i = 0; i < SIZE; i++) {
         if (mas[i].number == searchNum) {
-            cout << "ЗНАЙДЕНО: Поїзд " << mas[i].number << " їде в місто "
-                 << mas[i].destination << " о " << mas[i].time << endl;
+            cout << "Р—РќРђР™Р”Р•РќРћ: РџРѕС—Р·Рґ " << mas[i].number << " С—РґРµ РІ РјС–СЃС‚Рѕ "
+                 << mas[i].destination << " Рѕ " << mas[i].time << endl;
             found = true;
         }
     }
-    if (!found) cout << "Не знайдено." << endl;
+    if (!found) cout << "РќРµ Р·РЅР°Р№РґРµРЅРѕ." << endl;
 
-    // --- СОРТУВАННЯ ЗА МІСТАМИ ---
+    // РЎРћР РўРЈР’РђРќРќРЇ Р—Рђ РњР†РЎРўРђРњР
     for (int i = 0; i < SIZE - 1; i++) {
         for (int j = 0; j < SIZE - i - 1; j++) {
             bool swap = false;
@@ -95,9 +94,9 @@ int main() {
         }
     }
 
-    cout << "\n=== Список за містами ===" << endl;
+    cout << "\n=== РЎРїРёСЃРѕРє Р·Р° РјС–СЃС‚Р°РјРё ===" << endl;
     for (int i = 0; i < SIZE; i++) {
-        cout << mas[i].destination << "\t\t" << mas[i].time << "\t №" << mas[i].number << endl;
+        cout << mas[i].destination << "\t\t" << mas[i].time << "\t в„–" << mas[i].number << endl;
     }
 
     system("pause");
