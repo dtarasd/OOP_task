@@ -44,7 +44,7 @@ int main() {
     std::cout << std::endl;
 
 
-    // Виклик префіксного оператора (++a)
+    
     std::cout << "Виклик префіксного (++a): ";
     coord c = ++a;
     std::cout << "a = "; a.show_coord();
@@ -55,7 +55,7 @@ int main() {
     b.show_coord();
     std::cout << std::endl;
 
-    // Виклик постфіксного оператора (b++)
+   
     std::cout << "Виклик постфіксного (b++): ";
     coord d = b++;
     std::cout << "b = "; b.show_coord();
